@@ -1,0 +1,147 @@
+{% extends 'core/base.html' %}
+{%  load static %}
+{% block title %} Listagem de pessoas {% endblock %}
+
+
+
+
+{% block content %}
+<div class="row" id="corpo_da_listagem">
+    
+    <!--Verifica se o usuario pertence ao grupo admin-->
+    {% if user.groups.all.0.name == "admin" %}
+    <div class="col-sm-3" style="background-color: antiquewhite;">
+        <!--Bloco de select pra pesquisa-->
+
+        <form class="form-horizontal" method="GET" name="form_select" id="form_select" action=""
+            data-areas-url="{% url 'ajax_load_areas' %}" data-congregacoes-urls="{% url 'ajax_load_congregacoes' %}"
+            data-nome-url="{% url 'pesquisar_pessoas' %}">
+
+            <div class="form-group" style="padding-top: 10px;">
+                <label for="sel1">Pesquisar pelo nome:</label>
+                <input class="form-control" type="text" name="nome_input" id="nome_input" placeholder="Buscar por nome">
+
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="zona_id">Selecione a zona:</label>
+                <select class="form-control" id="zona_id" name="zona_id">
+                    <option value="">selecione um valor</option>
+                    {% for zona in zonas_select %}
+
+                    <option value="{{zona.id}}"> {{zona.zona}} </option>
+
+                    {% endfor %}
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="area_id">Selecione a area:</label>
+                <select class="form-control" id="area_id" name="area_id">
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="congregacao_id">Selecione a congregacao:</label>
+                <select class="form-control" id="congregacao_id" name="congregacao_id">
+
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="cargo_id">Selecione o cargo:</label>
+                <select class="form-control" id="cargo_id" name="cargo_id">
+                    <option value="">selecione um valor</option>
+                    {% for cargo in cargos_select %}
+
+                    <option value="{{ cargo.id }}"> {{ cargo.cargo}} </option>
+
+                    {% endfor %}
+                </select>
+            </div>
+
+        </form>
+
+        <button class="btn btn-primary" id="buscar_id" name="buscar_id">Filtrar <i class="bi bi-funnel"></i> </button>
+
+
+    </div>
+    <!--Fim do bloco dos selects para pesquisa-->
+    {% else %}
+    <div class="col-sm-3" id="">
+    </div>
+    {% endif %}
+    <div class="col-sm-9" id="">
+
+
+
+
+        <div class="container p-3 my-2 border">
+            <div id="area_lista" name="area_lista">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOME</th>
+                            <th>CARGO</th>
+                            <th>CONGREGACAO</th>
+
+                            <th>ACOES</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for pessoa in object_list %}
+                        <tr>
+                            <td>{{ pessoa.id }}</td>
+                            <td>{{ pessoa.nome }} </td>
+                            <td>{{ pessoa.cargo}} </td>
+                            <td>{{ pessoa.congregacao }}</td>
+                            <td>
+                                {% if perms.pessoas.change_pessoas %}
+                                <a href="{% url 'editar_pessoas' pessoa.pk %}"
+                                    style="padding-right: 5px; padding-left: 5px;">
+                                    <i class="bi bi-pencil-square"></i> </a>
+                                {% endif %}
+                                {% if perms.pessoas.delete_pessoas %}
+                                <a href="{% url 'deleta_pessoas' pessoa.pk %}"> <i class="bi bi-x-square"></i> </a>
+                                {% endif %}
+                                <a href="{% url 'pessoa_detalhes' pessoa.pk%}">detalhes</a>
+                            </td>
+
+
+
+
+                        </tr>
+                        {% empty %}
+                        <li>Sem registros</li>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <hr>
+        {% if perms.pessoas.add_pessoas %}
+        <a class="btn btn-primary" href="{% url 'cadastrar_pessoas' %}"><i class="bi bi-person-plus-fill"></i> Novo
+            cadastro</a>
+        {% endif %}
+    </div>
+    <!-- <div class=" col-sm-1"></div>-->
+
+</div>
+
+</div>
+<div class=""></div>
+
+</div>
+
+
+{% endblock content %}

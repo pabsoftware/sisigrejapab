@@ -1,0 +1,32 @@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>DATA NASC</th>
+            <th>EMAIL</th>
+            <th>ACOES</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {% for pessoa in object_list %}
+        <tr>
+            <td>{{ pessoa.id }}</td>
+            <td>{{ pessoa.nome }} </td>
+            <td>{{ pessoa.data_nasc|date:'d/m/Y' }}</td>
+            <td>{{ pessoa.email }}</td>
+            <td>
+                <a href="{% url 'editar_pessoas' pessoa.pk %}" style="padding-right: 5px;
+                                              padding-left: 5px;">
+                    <i class="bi bi-pencil-square"></i> </a>
+                <a href="{% url 'deleta_pessoas' pessoa.pk %}"> <i class="bi bi-x-square"></i> </a>
+                <a href="{% url 'pessoa_detalhes' pessoa.pk %}">detalhes</a>
+            </td>
+        </tr>
+        {% empty %}
+        <li>Sem registros</li>
+        {% endfor %}
+    </tbody>
+</table>

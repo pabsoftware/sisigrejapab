@@ -1,0 +1,126 @@
+
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block titulo %}Signup{% endblock titulo %}
+ {% block content %}
+
+
+
+<div class="container mt-3 mb-5">
+  <div class="row">
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-6"  id="border_signup">
+      <div class="container  mb-3">
+       
+        <div class="mt-2 p-3 bg-primary text-white rounded" id="bg">
+          <div class="row"> 
+
+            <div class="col-sm-4 mx-2" id="imglogo"> 
+              <img src="{% static 'img/logoigreja.png' %}" alt="Logo igreja" id="imglogo">
+            </div> 
+
+            <div class="col-sm-8 mx-2"> 
+          <div id="titulo">INFORME SEUS DADOS PARA CADASTRO</div>
+        </div> 
+          </div>
+        </div>
+        
+        <br />
+        <form action="" method="POST">
+          {% csrf_token %} {% if messages %} {% for m in messages %}
+          <div class="alert alert-warning" role="alert">
+            <strong>Atenção!</strong> {{ m }}
+          </div>
+          {% endfor %} {% endif %}
+
+          <div class="mb-3 mt-3">
+            <label for="name" class="form-label"
+              >* Nome completo como está no CPF:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Digite seu nome completo"
+              name="name"
+            />
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label for="cpf" class="form-label">* CPF:</label>
+            <input
+              oninput="mascara(this)"
+              type="text"
+              class="form-control"
+              id="cpf"
+              placeholder="Informe seu CPF"
+              name="cpf"
+              required="True"
+            />
+          </div>
+
+          <div class="mb-0 mt-3">
+            <label for="email" class="form-label">* Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Digite seu email"
+              name="email"
+              required="True"
+            />
+          </div>
+
+          <div style="font-size: 12px">
+            <ul>
+              <div class="feed">
+                <li>
+                  Informe seu melhor email, ele servirar para recupera senhas
+                </li>
+              </div>
+            </ul>
+          </div>
+
+          <div class="mb-0 mt-3">
+            <label for="password" class="form-label">* Senha:</label>
+            <input
+              type="text"
+              onKeyUp="verificapw()"
+              class="form-control"
+              id="password"
+              placeholder="Digite uma senha"
+              name="password"
+              required="True"
+            />
+          </div>
+          
+          <div style="font-size: 12px">
+            <ul>
+              <div class="feed">
+                <li>Sua Senha deve conte no mínimo 8 caractere</li>
+              </div>
+              <div class="feed">
+                <li>Conter letras maiúscula ou minúscula</li>
+              </div>
+              <div class="feed"><li>Conter números</li></div>
+            </ul>
+          </div>
+
+          <button  type="submit" class="btn btn-primary" id="cadastrar" disabled>
+            <i class="bi bi-arrow-right-square"></i> Cadastrar 
+          </button>
+         
+        </form>
+
+      </div>
+    </div>
+
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+
+{% endblock %}
+

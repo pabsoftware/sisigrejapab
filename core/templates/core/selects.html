@@ -1,0 +1,68 @@
+{% extends 'core/base_select.html' %}
+{% block content %}
+
+        <form class="form-horizontal" method="post" name="form_select" id="form_select" action=""
+         data-areas-url="{% url 'ajax_load_areas' %}" data-congregacoes-urls="{% url 'ajax_load_congregacoes' %}">
+            <div class="form-group">
+                <label for="sel1">Selecione a zona:</label>
+                <select class="form-control" id="zona_id" required name="zona_id">
+                    <option value="">selecione um valor</option>
+                    {% for zona in zonas_select %}
+
+                    <option value="{{zona.id}}"> {{zona.zona}} </option>
+
+                    {% endfor %}
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sel1">Selecione a area:</label>
+                <select class="form-control" id="area_id" required name="area_id">
+                   
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sel1">Selecione a congregacao:</label>
+                <select class="form-control" id="congregacao_id" required name="congregacao_id">
+                 
+                   
+                </select>
+            </div>
+
+        </form>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+
+
+        <script type="text/javascript">
+$("#zona_id").change(function(){
+    const url = $('#form_select').attr("data-areas-url");
+    zona_id = $(this).val();
+    $.ajax({
+        url:url,
+        data: {'zona_id': zona_id},
+        success: function(data){
+            $("#area_id").html(data);
+        }
+    });
+
+});
+
+$("#area_id").change(function(){
+    const url = $('#form_select').attr("data-congregacoes-urls");
+    area_id = $(this).val();
+    $.ajax({
+        url:url,
+        data: {'area_id': area_id},
+        success: function(data){
+            $("#congregacao_id").html(data);
+        }
+    });
+
+});
+        </script>
+ 
+{% endblock content %}

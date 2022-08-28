@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="row" id="corpo_da_listagem">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-8">
+
+
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="alert alert-danger">
+
+               
+                <strong>Atenção!</strong> Deseja realmente excluir "{{ object.nome }} dirigente  {{ object.dirigente }}"?
+                
+            </div>
+            <input class="btn btn-danger" type="submit" value="Sim">
+            <a href="{% url 'listar_congregacoes' %}">
+                <div class="btn btn-primary"> Cancelar </div>
+            </a>
+        </form>
+    </div>
+    <div class="col-sm-2"> </div>
+</div>
+{% endblock content %}

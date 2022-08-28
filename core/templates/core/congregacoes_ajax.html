@@ -1,0 +1,9 @@
+
+    <option value="">selecione a congregacao</option>
+    
+    {% for cong in congregacoes_slect %}
+
+    <option value="{{cong.id}}"> {{cong.nome}} </option>
+
+    {% endfor %}
+

@@ -1,0 +1,268 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="row" id="corpo_da_listagem">
+    <div class="col-sm-1"> </div>
+    <div class="col-sm-10" id="">
+        <hr>
+        <a href="{% url 'editar_perfil_pessoa' %}" class="btn btn-primary"> <i class="bi bi-arrow-right-square"></i> Clique aqui, para atualizar dados cadastrais
+        </a>
+       
+       
+    
+        <hr>
+        <table class="table">
+            <thead>
+            <strong>    MINHAS INFORMAÇÕES CADASTRAIS - <h4> <span class="badge bg-info"> {{user.first_name}}:  {{object.situacao}}, {{object.status}}  </span> </h4> </strong>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                    <span class="badge bg-secondary" style=" width: 100%;">DADOS PESSOAIS</span>
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                     <strong>  NOME: </strong> 
+                    </td>
+                    <td>
+                         {{object.nome}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                     <strong>  SEXO: </strong> 
+                    </td>
+                    <td>
+                         {{object.sexo}}
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        <strong>   CPF: </strong> 
+
+                    </td>
+                    <td>
+                        {{user.cpf}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                     <strong>  RG: </strong> 
+                    </td>
+                    <td>
+                         {{object.rg}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                     <strong>  CNH: </strong> 
+                    </td>
+                    <td>
+                         {{object.cnh}}
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>
+                        
+                        <strong>  DATA NASC: </strong> 
+                    </td>
+                    <td>
+                        {{object.data_nasc |date:'d/m/Y'}}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <strong>  PAI: </strong> 
+                        
+                    </td>
+                    <td>
+                        {{object.pai}}
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td>
+                        <strong>   MAE: </strong> 
+                       
+                    </td>
+                    <td>
+                        {{object.mae}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <span class="badge bg-secondary" style=" width: 100%;">MEUS CONTATOS</span>
+                </td>
+                <tr>
+                    <td>
+                        <strong>   E-MAIL: </strong> 
+
+                    </td>
+                    <td>
+                        {{user.email}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>   CELULAR: </strong> 
+
+                    </td>
+                    <td>
+                        {{object.telefone}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <span class="badge bg-secondary" style=" width: 100%;">MEU ENDEREÇO</span>
+                </td>
+                <tr>
+                    <td>
+                        <strong>   ENDEREÇO </strong> 
+
+                    </td>
+                    <td>
+                        {{object.address}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>   NÚMERO: </strong> 
+
+                    </td>
+                    <td>
+                        {{object.address_number}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>   BAIRRO: </strong> 
+
+                    </td>
+                    <td>
+                        {{object.district}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>   CIDADE: </strong> 
+
+                    </td>
+                    <td>
+                        {{object.city}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>   UF: </strong> 
+
+                    </td>
+                    
+                    <td>
+                        {{object.uf}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>   PAÍS: </strong> 
+
+                    </td>
+                    <td>
+                        {{object.country}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <span class="badge bg-secondary" style=" width: 100%;">DADOS RELACIONADO À IGREJA</span>
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  SITUAÇÃO: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.situacao}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  STATUS: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.status}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  ZONA: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.zona}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  ÁREA: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.area}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  CONGREGAÇÃO: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.congregacao}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  CARGO: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.cargo}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  FUNÇÃO: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.funcao}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>  OBSERVAÇÕES: </strong> 
+                      
+                    </td>
+                    <td>
+                        {{object.observacao}}
+                    </td>
+                </tr>
+              
+            </tbody>
+
+        </table>
+
+
+
+    </div>
+    <div class="col-sm-1"> </div>
+</div>
+
+
+{% endblock content %}

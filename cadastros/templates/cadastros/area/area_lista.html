@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="row" id="corpo_da_listagem">
+    <div class="col-sm-1"> </div>
+    <div class="col-sm-10" id="">
+
+        <div style="padding-top: 10px; padding-bottom: 10px;">
+            <form method="GET">
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control" type="text" name="nome_input" id="nome_input"
+                            placeholder="Buscar por nome" ">
+                </div>
+
+                <div class=" col">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div style="padding-top: 10px; background-color: rgb(250, 252, 252);"></div>
+
+
+
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>AREA</th>
+                    <th>RESPONSÁVEL</th>
+                    <th>DESCRICAO</th>
+                    <th>ACOES</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for area in object %}
+                <tr>
+                    <td>{{ area.id }}</td>
+                    <td>{{ area.area }}</td>
+                    <td>{{ area.responsavel}} </td>
+                    <td>{{ area.descricao }}</td>
+                    <td> <a href=" {% url 'editar_areas' area.pk %} " style="padding-right: 5px; padding-left: 5px;">
+                            <i class="bi bi-pencil-square"></i> </a>
+                        <a href="{% url 'deletar_areas' area.pk %}"> <i class="bi bi-x-square"></i> </a>
+
+                    </td>
+
+
+
+
+                </tr>
+                {% empty %}
+                <li>Sem registros</li>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        <hr>
+
+        <a class="btn btn-primary" href="{% url 'cadastrar_areas' %}"> <i class="bi bi-person-plus-fill"></i> Novo
+            cadastro </a>
+
+    </div>
+    <div class=" col-sm-1"></div>
+
+</div>
+
+</div>
+<div class=""></div>
+
+</div>
+
+{% endblock content %}

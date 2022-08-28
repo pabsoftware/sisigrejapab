@@ -1,0 +1,47 @@
+/*====== CADASTRO DE USUARIOS ======*/
+#border_signup {
+    border: 2px solid rgb(219, 219, 245);
+    background-color: rgb(250, 252, 252);
+    border-radius: 10px;
+    padding: 0px;
+    padding-top: 10px;
+    box-shadow: inset  rgb(190, 198, 240);
+}
+
+#imglogo{
+    width: 60px;
+    height: 60px;
+}
+#titulo{
+    font-size: 20px;
+    text-align: center;
+    display : flex;
+    text-align: center;
+    align-items: center;
+}
+
+/* ======== TELA DE LOGIN =======*/
+
+#border_login{
+    border: 2px solid rgb(219, 219, 245);
+    background-color: rgb(250, 252, 252);
+    border-radius: 10px;
+    
+    box-shadow: inset  rgb(227, 230, 244);
+}#imglogo_login{
+    width: 60px;
+    height: 60px;  
+}
+#titulo_login{
+    text-align: center;
+}
+#bg_login{
+    padding: 0px;
+}
+
+
+#imglogo_nav{
+    width: 100px;
+    height: 100px;   
+}
+
