@@ -57,6 +57,12 @@ def editar_congregacoes(request, id):
             return redirect('listar_congregacoes')
     context = {'form': form}
     return render(request, template_name, context)
+
+def galeria_congregacoes(request):
+    template_name = 'cadastros/cong/galeria_cong.html'
+    object_list = Congregacoes.objects.all().order_by('nome')
+    context = {'object_list' : object_list}
+    return render(request, template_name, context)
          
     
 #--------------------------AREAS-----------------------------------

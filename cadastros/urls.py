@@ -2,15 +2,17 @@ from unicodedata import name
 from django.urls import path
 from cadastros.views import (
    
-    deletar_areas,
+    
     listar_congregacoes,
     cadastrar_congregacoes,
     editar_congregacoes,
     deletar_congregacoes,
+    galeria_congregacoes,
     
     listar_areas,
     cadastrar_areas,
     editar_area,
+    deletar_areas,
 
     listar_zonas,
     cadastrar_zonas, 
@@ -27,6 +29,7 @@ path('lista_cong/', listar_congregacoes, name="listar_congregacoes"),
 path('novo_cong/', cadastrar_congregacoes, name = "cadastrar_congregacoes"),
 path('editar_cong/<int:id>', editar_congregacoes, name='editar_congregacoes'),
 path('delete_cong/<int:id>', deletar_congregacoes, name='deletar_congregacoes'),
+path('galeria_cong/', galeria_congregacoes, name='galeria_congregacoes'),
 
 path('lista_area/', listar_areas, name = 'listar_areas'),
 path('nova_area/', cadastrar_areas, name='cadastrar_areas'),
