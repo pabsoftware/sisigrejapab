@@ -3,21 +3,32 @@
 
 {% block content %}
 
-
+<div class="container mt-3 ">
 <div class="row" id="galeria_cong">
     {% for cong in object_list %}
     <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+            
+         
+
       <div class="thumbnail">
         <a href="#">
           <img src="{% static 'img/logoigreja.png' %}" alt="Lights" style="width:100%">
-          <div class="caption">
-            <p> {{cong.nome}} </p>
+        </div>
+        <div class="card-header">
+          <div class="caption" >
+            <p> {{cong.nome}} </p>  
         </a>
+
+        Endereço: {{cong.address}}, {{cong.address_number}}, {{cong.district}}, {{cong.city}}, {{cong.cep}} 
       </div>
-     </div> 
     </div>
-      
-    
+     </div> 
+
+    </div>
+    </div>
     {% endfor %}
   </div>
+</div>
 {% endblock content %}
