@@ -55,6 +55,7 @@ class Pessoas_form(forms.ModelForm):
             'uf',
             'cep',
             'country',
+            'situacao',
             'data_batismo',
             'status', 
             'zona',

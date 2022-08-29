@@ -8,6 +8,7 @@ from core.views import popular_select, load_areas, load_congregacoes
 from cadastros.models import Zonas
 from usuarios.models import CustonUserModel
 from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.models import User, Group
 
 
 # Create your views here.
@@ -140,6 +141,9 @@ def editar_pessoas(request, id):
 def editar_perfil_pessoas(request):
     template_name ='pessoas/pessoa_form.html'
     u=request.user
+
+    situacao  = request.POST.get('situacao')
+    print(situacao)
     pessoa  = get_object_or_404(Pessoas, usuario=request.user.id)
     form = Pessoas_form(request.POST or None, instance=pessoa)
 
@@ -147,6 +151,10 @@ def editar_perfil_pessoas(request):
         
         if form.is_valid():
             form.save()
+            if situacao == 'Membro':
+                group = get_object_or_404(Group, name='Membros')
+                u.groups.add(group)
+
             return redirect('perfil_detalhes')
     context = {'form': form}
     return render(request, template_name, context)
