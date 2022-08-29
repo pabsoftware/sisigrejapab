@@ -30,6 +30,8 @@ class Pessoas_form(forms.ModelForm):
     telefone = forms.CharField(required=False)
     mae = forms.CharField(required=False)
     pai = forms.CharField(required=False)
+    observacoes = forms.CharField(
+        label='Observações (Informe sua área de interesse na igreja, por exemplo)',)
     
    
 
@@ -45,6 +47,7 @@ class Pessoas_form(forms.ModelForm):
             'data_nasc',
             'pai',
             'mae',
+            'nivel_escolaridade',
             'email',
             'telefone',
             'address',

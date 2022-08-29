@@ -1,3 +1,4 @@
+from cProfile import label
 from xmlrpc.client import Boolean
 from django.db import models
 from cadastros.models import Areas, Congregacoes, Zonas, Cargo_Funcao
@@ -24,6 +25,21 @@ class Pessoas(UuidModel, Situaco_na_igreja, Document, Address, Active, TimeStamp
         ("Feminino", "Feminino")
     )
 
+    ESCOLARIDADE_CHOICES = (
+        ("Analfabeto", "Analfabeto"),
+        ("Até 5º ano", "Até 5º ano"),
+        ("5º ano complte", "5º ano completo"),
+        ("Fundamental Completo", "Fundamental Completo"),
+        ("Médio Incompleto", "Médio Incompleto"),
+        ("Médio Completo", "Médio Completo"),
+        ("Superior Incompleto", "Superior Incompleto"),
+        ("Superior Completo", "Superior Completo"),
+        ("Mestrado", "Mestrado"),
+        ("Doutorado", "Doutorado"),
+        ("Ignorado", "Ignorado")
+        
+    )
+
     STATUS_CHOICES = (
         ("Em comunhão", "Em comunhão"),
         ("Disciplinado", "Disciplinado"),
@@ -48,6 +64,7 @@ class Pessoas(UuidModel, Situaco_na_igreja, Document, Address, Active, TimeStamp
     area = models.ForeignKey(Areas, on_delete=models.CASCADE, null=True)
     congregacao = models.ForeignKey(Congregacoes, on_delete=models.CASCADE, null=True)
     dizimista = models.BooleanField()
+    nivel_escolaridade = models.CharField(max_length=60, choices=ESCOLARIDADE_CHOICES, blank=True, null=True)
     usuario = models.OneToOneField(CustonUserModel, on_delete=models.CASCADE)
 
     class Meta:
