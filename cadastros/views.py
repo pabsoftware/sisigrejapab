@@ -63,6 +63,7 @@ def galeria_congregacoes(request):
     object_list = Congregacoes.objects.all().order_by('nome')
     context = {'object_list' : object_list}
     return render(request, template_name, context)
+    
          
     
 #--------------------------AREAS-----------------------------------

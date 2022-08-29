@@ -22,7 +22,7 @@ def popular_select(request):
 
 
 def load_areas(request):
-    template_name = 'core/areas_ajax.html'
+    template_name = 'core/fetch/areas_ajax.html'
     zona_id = request.GET.get('zona_id')
     areas =  Areas.objects.filter(zona_id=zona_id).all()
     context = {'areas_slect': areas}
@@ -30,7 +30,7 @@ def load_areas(request):
 
 
 def load_congregacoes(request):
-    template_name = 'core/congregacoes_ajax.html'
+    template_name = 'core/fetch/congregacoes_ajax.html'
     area_id = request.GET.get('area_id')
     congregacoes =  Congregacoes.objects.filter(area_id=area_id).all()
     context = {'congregacoes_slect': congregacoes}
