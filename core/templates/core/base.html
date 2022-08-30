@@ -20,10 +20,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
-    <script src= "{% static 'scripts/jquery.mask.min.js' %}"> </script>
-    <script src="{% static 'scripts/function.js' %}"></script>
-    <script src="{% static 'scripts/func_fetch.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
    
 
   </head>
@@ -86,7 +83,13 @@
                 <ul class="dropdown-menu">
                  
                   <li>
-                    <a class="dropdown-item" href="{% url 'listar_zonas' %}"">
+                    <a class="dropdown-item" href="{% url 'listar_pessoas' %}">
+                      <i class="bi bi-card-heading"></i> Pessoas </a
+                    >
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="{% url 'listar_zonas' %}">
                       <i class="bi bi-card-heading"></i> Zonas </a
                     >
                   </li>
@@ -159,8 +162,16 @@
         </ul>
       </div>
     </nav>
-
+    
     {% block content %} {% endblock content %}
+
+    <script src= "{% static 'scripts/jquery.mask.min.js' %}"> </script>
+    <script src="{% static 'scripts/function.js' %}"></script>
+   
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    {% block scripts %}{% endblock scripts %}
+
     <div class="mt-2 p-1 bg-primary text-white text-center">
       <hr>
       <h5>Sisitema desenvolvido integralmente pelo programador:</h5> 

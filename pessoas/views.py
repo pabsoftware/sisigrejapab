@@ -4,7 +4,6 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from pessoas.forms import Pessoas_form
 from pessoas.models import Cargo_Funcao, Pessoas
-from core.views import popular_select, load_areas, load_congregacoes
 from cadastros.models import Zonas
 from usuarios.models import CustonUserModel
 from django.contrib.auth.decorators import login_required 
@@ -63,7 +62,7 @@ def pesquisar_pessoas(request):
     zona_id = request.GET.get('zona_id', None)
     area_id = request.GET.get('area_id', None)
     congregacao_id = request.GET.get('congregacao_id', None)
-    
+    print(zona_id)
     object_list = Pessoas.objects.all()
  
     if pesquisa_nome:

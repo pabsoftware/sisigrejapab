@@ -115,6 +115,7 @@ function mask(o, f) {
 
  $(document).ready(function(){
    $("#id_cep").mask("00000-00");
+  
  })
 
  

@@ -14,16 +14,16 @@
         <hr>
         <table class="table">
             <thead>
-            <strong>    MINHAS INFORMAÇÕES CADASTRAIS - <h4> <span class="badge bg-info" style=" width: 100%;"> 
+            <strong>    MINHAS INFORMAÇÕES CADASTRAIS </strong> <h5> <span class="badge bg-secondary " style=" width: 100%; text-align: left;"> 
                 NOME: {{user.first_name}} -  
-                STATUS: {{object.situacao}}, 
-                SITUAÇÃO: {{object.status}},  
+                SITUAÇÃO: {{object.situacao}}, 
+                 {{object.status}},  
                 DIZIMISTA: {% if object.dizimista == 1 %}
                 Sim
                 {% else %}
                 Não
                 {% endif %}
-            </span> </h4> </strong>
+            </span> </h5>
             </thead>
             <tbody>
                 <tr>

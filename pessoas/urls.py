@@ -15,7 +15,7 @@ editar_perfil_pessoas
 )
 urlpatterns = [
 path('', home, name='home'),
-path('listar/', listar_pessoas, name='listar_pessoas'),
+path('listar', listar_pessoas, name='listar_pessoas'),
 path('pesquisar/', pesquisar_pessoas, name='pesquisar_pessoas'),
 path('novo/',pessoas_cad, name= 'cadastrar_pessoas'),
 path('delete/<int:id>', deleta_pessoas, name='deleta_pessoas'),
