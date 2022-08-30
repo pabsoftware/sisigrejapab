@@ -27,7 +27,16 @@ class Pessoas_form(forms.ModelForm):
                 input_formats=('%Y-%m-%d',),
                 )
 
-    telefone = forms.CharField(required=False)
+    telefone = forms.CharField(required=False,
+        widget= forms.TextInput(attrs={
+            'class': 'telefone', 
+            'type' : 'text',
+            'onkeypress' : 'mask(this, mphone);',
+            'onblur' : 'mask(this, mphone);'
+            }))
+  
+
+
     mae = forms.CharField(required=False)
     pai = forms.CharField(required=False)
     

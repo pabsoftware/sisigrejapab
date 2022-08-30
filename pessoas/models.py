@@ -63,7 +63,7 @@ class Pessoas(UuidModel, Situaco_na_igreja, Document, Address, Active, TimeStamp
     zona = models.ForeignKey(Zonas, on_delete=models.CASCADE, null=True)
     area = models.ForeignKey(Areas, on_delete=models.CASCADE, null=True)
     congregacao = models.ForeignKey(Congregacoes, on_delete=models.CASCADE, null=True)
-    dizimista = models.BooleanField()
+    dizimista = models.BooleanField(blank=True, null=True)
     nivel_escolaridade = models.CharField(max_length=60, choices=ESCOLARIDADE_CHOICES, blank=True, null=True)
     usuario = models.OneToOneField(CustonUserModel, on_delete=models.CASCADE)
 

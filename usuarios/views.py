@@ -72,7 +72,7 @@ def cad_user(request):
                 usuario=user, nome=name, cpf=cpf, email=email)
 
             # Aqui faz o login automático, ao se cadastrar
-            #user2 = authenticate(cpf=cpf, password=password)
+            user2 = authenticate(cpf=cpf, password=password)
             # if user is not None:
             # login vem do django
             # login(request, user2)
