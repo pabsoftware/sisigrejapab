@@ -113,4 +113,8 @@ function mask(o, f) {
    return r;
  }
 
+ $(document).ready(function(){
+   $("#id_cep").mask("00000-00");
+ })
+
  
