@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import os, sys
+import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,13 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-%!&)jsy8a)qzroi2u^8r!k)&s2^10x=8fe4u@ow_e3j4n^02ts'
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-%!&)jsy8a)qzroi2u^8r!k)&s2^10x=8fe4u@ow_e3j4n^02ts')
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY', 'django-insecure-%!&)jsy8a)qzroi2u^8r!k)&s2^10x=8fe4u@ow_e3j4n^02ts')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['localhost','paulopab.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', 'paulopab.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'usuarios.CustonUserModel'
 
@@ -120,7 +122,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-#Config Autenticação
+# Config Autenticação
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'

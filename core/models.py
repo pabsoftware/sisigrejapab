@@ -7,17 +7,19 @@ from django.contrib.auth.models import User
 from django.db import models
 from localflavor.br.br_states import STATE_CHOICES
 
+
 class Situaco_na_igreja(models.Model):
     SITUACAO_CHOISE = (
-        ("Membro","Membro"),
+        ("Membro", "Membro"),
         ("Congregado", "Congregado")
     )
-    situacao = models.CharField(max_length=20, choices=SITUACAO_CHOISE, blank=False, null=False)
-    data_batismo = models.DateField(null=True, blank = True, auto_now=False, auto_now_add=False)
+    situacao = models.CharField(
+        max_length=20, choices=SITUACAO_CHOISE, blank=False, null=False)
+    data_batismo = models.DateField(
+        null=True, blank=True, auto_now=False, auto_now_add=False)
 
     class Meta:
         abstract = True
-
 
 
 class UuidModel(models.Model):
@@ -140,4 +142,3 @@ class Active(models.Model):
 
     class Meta:
         abstract = True
-

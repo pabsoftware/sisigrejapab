@@ -1,6 +1,7 @@
 from django import forms
 from .models import Cargo_Funcao, Congregacoes, Areas, Zonas
 
+
 class Cargo_Form(forms.ModelForm):
     class Meta:
         model = Cargo_Funcao
@@ -8,7 +9,6 @@ class Cargo_Form(forms.ModelForm):
             'cargo',
             'obs',
         )
-
 
 
 class Congregacoes_form(forms.ModelForm):
@@ -40,12 +40,12 @@ class Area_form(forms.ModelForm):
             'responsavel',
             'descricao',
         )
-        
-class Zona_Form(forms.ModelForm): 
+
+
+class Zona_Form(forms.ModelForm):
     class Meta:
         model = Zonas
         fields = (
-         'zona',
-         'zona_obs',
+            'zona',
+            'zona_obs',
         )
-            
