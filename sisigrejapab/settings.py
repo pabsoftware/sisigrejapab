@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'core',
     'cadastros',
     'pessoas',
+    'igreja',
 ]
 
 MIDDLEWARE = [
