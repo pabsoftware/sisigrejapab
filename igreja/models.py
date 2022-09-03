@@ -6,7 +6,7 @@ from core.models import Active, Address
 # Create your models here.
 
 
-class denominacao(Active, Address):
+class Denominacao(Active, Address):
     nome = models.CharField(max_length=200)
 
     class Meta:
