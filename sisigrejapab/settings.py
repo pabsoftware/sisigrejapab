@@ -138,6 +138,9 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+MEDIA_URL = '/media/'
+
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(1, os.path.join(PROJECT_ROOT, '../apps'))
 

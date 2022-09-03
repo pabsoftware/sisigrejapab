@@ -9,6 +9,7 @@ django-localflavor = "*"
 validate-docbr = "*"
 django-bootstrap-v5 = "*"
 flask = "*"
+pillow = "*"
 
 [dev-packages]
 

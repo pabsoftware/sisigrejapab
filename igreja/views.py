@@ -1,38 +1,41 @@
 
 from django.shortcuts import render, redirect
 
-from .models import Denominacao, Doacoes, SobreIgreja
+from .forms import *
 
 # Create your views here.
 
 
 def sobreigreja_add(request):
     template_name = 'igreja/sobreigreja_form.html'
-    form = SobreIgreja(request.POST or None)
+    form = SobreIgreja_form(request.POST or None)
 
     if request.method == 'POST':
         if form.is_valid():
             form.save()
             return redirect('home')
+
     context = {'form': form}
+
     return render(request, template_name, context)
 
 
 def doacoes_add(request):
     template_name = 'igreja/doacoes_form.html'
-    form = Doacoes(request.POST or None)
-
-    if request.method == 'POST':
+    form = Doacoes_form(request.POST, request.FILES)
+    print(request.FILES)
+    if request.method == "POST":   
         if form.is_valid():
             form.save()
             return redirect('home')
-    context = {'form': form}
+    
+    context = {'form':form}
     return render(request, template_name, context)
 
 
 def denominacao_add(request):
     template_name = 'igreja/denominacao_form.html'
-    form = Denominacao(request.POST or None)
+    form = denominacao_form(request.POST, request.FILES)
 
     if request.method == 'POST':
         if form.is_valid():

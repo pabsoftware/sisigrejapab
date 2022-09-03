@@ -12,7 +12,7 @@
           <strong>INFORME OS DADOS PARA CADASTRO</strong> </a>.
         </div>
 
-        <form action="" method="post" class="form">
+        <form action="{% url 'doacoes' %}" method="post" class="form">
           {% csrf_token %}
           {% bootstrap_form form %}
           

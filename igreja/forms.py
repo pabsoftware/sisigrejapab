@@ -1,21 +1,34 @@
 from dataclasses import fields
 from .models import *
 from django import forms
+from django.forms.widgets import ClearableFileInput
 
 
-class Doacoes_add(forms.ModelForm):
+class Doacoes_form(forms.ModelForm):
+    foto = forms.ImageField(widget=ClearableFileInput)
     class Meta:
         model=Doacoes
-        fields = '__all__'
+        fields = (
+            'descricao',
+            'tipo_conta',
+            'banco',
+            'titular',
+            'agencia',
+            'conta',
+            'variacao',
+            'variacao',
+            'chave_pix',
+
+        )
 
 
-class denominacao_add(forms.ModelForm):
+class denominacao_form(forms.ModelForm):
     class Meta:
         model = Denominacao
         fields = ('nome',)
         
 
-class SobreIgreja(forms.ModelForm):
+class SobreIgreja_form(forms.ModelForm):
     class Meta:
         model = SobreIgreja
         fields = '__all__'

@@ -46,14 +46,15 @@ class Doacoes(models.Model):
         ('Conta poupança', 'Conta poupança')
     )
 
-    descricao = models.CharField(max_length=250)
-    titular = models.CharField(max_length=120)
-    banco = models.CharField(max_length=120)
+    descricao = models.CharField(max_length=250, blank=True, null=True)
+    titular = models.CharField(max_length=120, blank=True, null=True)
+    banco = models.CharField(max_length=120, blank=True, null=True)
     chave_pix =  models.CharField(max_length=120, blank=True, null=True)
     tipo_conta =  models.CharField(max_length=120, choices=TIPOCONTA_CHOICES, blank=True, null=True)
     agencia = models.CharField(max_length=100, null=True, blank=True)
     conta = models.CharField(max_length=100, null=True, blank=True)
     variacao = models.CharField(max_length=10, null=True, blank=True)
+    foto = models.FileField(upload_to="img/doacoes", null=True, blank=True)
 
     class Meta:
             verbose_name_plural = 'doacoes'
