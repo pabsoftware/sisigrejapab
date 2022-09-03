@@ -14,10 +14,10 @@ class Denominacao(Active, Address):
         db_table = 'denominacao'
 
     def __str__(self):
-        return self.titulo_sobre
+        return self.nome
 
 
-class SobreIgreja():
+class SobreIgreja(models.Model):
 
     ASSUNTO_CHOICES = (
         ("Nossa visão", "Nossa visão"),
@@ -32,14 +32,14 @@ class SobreIgreja():
     sobre = models.TextField(blank=True, null=True)
 
     class Meta:
-        verbose_name_plural = 'SobreIgreja'
-        db_table = 'SobreIgreja'
+        verbose_name_plural = 'sobreigreja'
+        db_table = 'sobreigreja'
 
     def __str__(self):
-        return self.titulo_sobre
+        return self.assunto
 
 
-class Doacoes():
+class Doacoes(models.Model):
     
     TIPOCONTA_CHOICES = (
         ('Conta corrente', 'Conta corrente'),
@@ -55,3 +55,9 @@ class Doacoes():
     conta = models.CharField(max_length=100, null=True, blank=True)
     variacao = models.CharField(max_length=10, null=True, blank=True)
 
+    class Meta:
+            verbose_name_plural = 'doacoes'
+            db_table = 'doacoes'
+
+    def __str__(self):
+        return self.descricao

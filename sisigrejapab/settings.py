@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get(
 #DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['localhost', 'paulopab.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost','127.0.0.1', 'paulopab.pythonanywhere.com']
 
 AUTH_USER_MODEL = 'usuarios.CustonUserModel'
 

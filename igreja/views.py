@@ -38,5 +38,5 @@ def denominacao_add(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-    context = {'form': form}
+    context = {'form':form} 
     return render(request, template_name, context)

@@ -12,7 +12,7 @@ class Doacoes_add(forms.ModelForm):
 class denominacao_add(forms.ModelForm):
     class Meta:
         model = Denominacao
-        fields = '__all__'
+        fields = ('nome',)
         
 
 class SobreIgreja(forms.ModelForm):

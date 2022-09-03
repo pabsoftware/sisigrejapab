@@ -7,5 +7,5 @@ urlpatterns = [
 
     path('sobrenos/', sobreigreja_add, name="sobreigreja"),
     path('doacoes/', doacoes_add, name="doacoes"),
-    path('dadosgreja/', denominacao_add, name="dadosigreja"),
+    path('denominacao/', denominacao_add, name="denominacao"),
 ]
