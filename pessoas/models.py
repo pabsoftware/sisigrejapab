@@ -1,5 +1,4 @@
-from cProfile import label
-from xmlrpc.client import Boolean
+
 from django.db import models
 from cadastros.models import Areas, Congregacoes, Zonas, Cargo_Funcao
 from usuarios.models import CustonUserModel
