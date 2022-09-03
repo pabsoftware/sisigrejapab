@@ -37,3 +37,21 @@ class SobreIgreja():
 
     def __str__(self):
         return self.titulo_sobre
+
+
+class Doacoes():
+    
+    TIPOCONTA_CHOICES = (
+        ('Conta corrente', 'Conta corrente'),
+        ('Conta poupança', 'Conta poupança')
+    )
+
+    descricao = models.CharField(max_length=250)
+    titular = models.CharField(max_length=120)
+    banco = models.CharField(max_length=120)
+    chave_pix =  models.CharField(max_length=120, blank=True, null=True)
+    tipo_conta =  models.CharField(max_length=120, choices=TIPOCONTA_CHOICES, blank=True, null=True)
+    agencia = models.CharField(max_length=100, null=True, blank=True)
+    conta = models.CharField(max_length=100, null=True, blank=True)
+    variacao = models.CharField(max_length=10, null=True, blank=True)
+
