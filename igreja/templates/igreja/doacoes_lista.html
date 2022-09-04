@@ -36,14 +36,14 @@
                 </tr>
             </thead>
             <tbody>
-                {% for doacoes in object_list %}
+                {% for doacoes in object %}
                 <tr>
                     <td>{{ doacoes.id }}</td>
                    <td>{{ doacoes.descricao}} </td>
                     <td>{{ doacoes.chave_pix }}</td>
-                    <td> <a href="{% url 'editar_cargos' cargo.pk %}" style="padding-right: 5px; padding-left: 5px;">
+                    <td> <a href="{% url 'edit_doacoes' doacoes.pk %}" style="padding-right: 5px; padding-left: 5px;">
                             <i class="bi bi-pencil-square"></i> </a>
-                        <a href="{% url 'deletar_cargos' cargo.pk %}"> <i class="bi bi-x-square"></i> </a>
+                        <a href="#"> <i class="bi bi-x-square"></i> </a>
                         
                     </td>
 
@@ -60,7 +60,7 @@
 
         <hr>
 
-        <a class="btn btn-primary" href="{% url 'cadastrar_cargos' %}"><i class="bi bi-person-plus-fill"></i> Novo
+        <a class="btn btn-primary" href="{% url 'add_doacoes' %}"><i class="bi bi-person-plus-fill"></i> Novo
             cadastro</a>
 
     </div>
