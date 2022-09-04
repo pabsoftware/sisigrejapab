@@ -110,3 +110,5 @@ def lista_user(request):
 
     context = {'query': query}
     return render(request, template_name, context)
+
+

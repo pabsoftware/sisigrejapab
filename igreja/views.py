@@ -65,7 +65,7 @@ def doacoes_edit(request, id):
     return render(request, template_name, context)
 #===================FIM DOACOES ========================
 
-
+#===================DENOMINACAO ========================
 def denominacao_add(request):
     template_name = 'igreja/denominacao_form.html'
     form = denominacao_form(request.POST, request.FILES)
@@ -76,3 +76,28 @@ def denominacao_add(request):
             return redirect('home')
     context = {'form':form} 
     return render(request, template_name, context)
+
+
+#===================FIM DENOMINACAO ========================
+
+#=================== CONTATO ========================
+def contatos_add(request):
+    template_name = 'igreja/contato_msg_form.html'
+    form = Contatos_msg_form(request.POST or None)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    context = {'form':form} 
+    return render(request, template_name, context)
+
+def list_dmensagens(request):
+    template_name = 'igreja/mensagem_list.html'
+    object = Contatos_Msg.objects.all()
+
+    context = {'object': object}
+    return render(request, template_name, context)
+
+
+#===================FIM CONTATO ========================

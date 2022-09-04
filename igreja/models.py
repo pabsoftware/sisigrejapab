@@ -1,6 +1,7 @@
 
 from cProfile import label
 from multiprocessing.dummy import active_children
+from tabnanny import verbose
 from django.db import models
 from pessoas.models import Pessoas
 from core.models import Active, Address
@@ -64,3 +65,17 @@ class Doacoes(models.Model):
 
     def __str__(self):
         return self.descricao
+
+
+class Contatos_Msg(models.Model):
+    lido = models.BooleanField(default=False)
+    respondido = models.BooleanField(default=False)
+    nome = models.CharField(max_length=200)
+    email = models.EmailField()
+    mensagem = models.TextField()
+
+    class Meta:
+        verbose_name_plural = 'contatos_msg'
+        db_table = 'contatos_msg'
+    def __str__(self):
+        return self.nome

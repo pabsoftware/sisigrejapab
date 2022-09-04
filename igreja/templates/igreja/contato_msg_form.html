@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+
+{% load bootstrap5 %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8" style="padding-top: 20px; padding-bottom: 20px;">
+      <div class="container p-3 my-2 border">
+        <div class="alert alert-success">
+          <strong>FALE CONOSCO, TEREMOS PRAZER EM ATENDE-LO</strong> </a>.
+        </div>
+
+        <form action="" method="post" class="form" enctype ="multipart/form-data" >
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          
+          {% buttons %}
+          <button type="submit" class="btn btn-success">
+            <i class="bi bi-check-lg"></i> Enviar
+          </button>
+
+        
+
+          {% endbuttons %}
+        </form>
+
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+</div>
+
+{% endblock content %}

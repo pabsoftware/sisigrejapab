@@ -9,6 +9,7 @@ from localflavor.br.models import BRCPFField
 class CustonUserModel(AbstractUser):
     cpf = BRCPFField('CPF', unique=True, blank=False, null=False)
     email = models.EmailField(max_length=120, blank=False, null=False)
+  
 
     USERNAME_FIELD = 'cpf'
     REQUIRED_FIELDS = ['email']

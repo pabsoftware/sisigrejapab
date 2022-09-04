@@ -129,7 +129,7 @@ def pessoas_cad(request):
 def editar_pessoas(request, id):
     template_name = 'pessoas/pessoa_form.html'
     pessoa = Pessoas.objects.get(pk=id)
-    form = Pessoas_form(request.POST or None, instance=pessoa)
+    form = Pessoas_form(request.POST or None, request.FILES, instance=pessoa)
 
     if request.method == 'POST':
 
@@ -150,9 +150,10 @@ def editar_perfil_pessoas(request):
     situacao = request.POST.get('situacao')
     print(situacao)
     pessoa = get_object_or_404(Pessoas, usuario=request.user.id)
-    form = Pessoas_form(request.POST or None, instance=pessoa)
+    form = Pessoas_form(instance=pessoa)
 
     if request.method == 'POST':
+        form = Pessoas_form(request.POST or None, request.FILES, instance=pessoa)
 
         if form.is_valid():
             form.save()

@@ -1,6 +1,7 @@
 
 from django import forms
 from pessoas.models import Pessoas
+from django.forms.widgets import ClearableFileInput
 
 
 from pessoas.models import Pessoas, Cargo_Funcao
@@ -38,6 +39,7 @@ class Pessoas_form(forms.ModelForm):
 
     mae = forms.CharField(required=False)
     pai = forms.CharField(required=False)
+    foto = forms.ImageField(widget=ClearableFileInput, required=False)
 
     class Meta:
         model = Pessoas
@@ -45,6 +47,7 @@ class Pessoas_form(forms.ModelForm):
         fields = (
             'active',
             'nome',
+            'foto',
             'sexo',
             'rg',
             'cnh',

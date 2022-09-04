@@ -70,7 +70,7 @@ class Pessoas(UuidModel, Situaco_na_igreja, Document, Address, Active, TimeStamp
     nivel_escolaridade = models.CharField(
         max_length=60, choices=ESCOLARIDADE_CHOICES, blank=True, null=True)
     usuario = models.OneToOneField(CustonUserModel, on_delete=models.CASCADE)
-
+    foto = models.FileField(upload_to="img/usuarios/", null=True, blank=True)
     class Meta:
         verbose_name_plural = 'Pessoas'
         db_table = 'pessoas'

@@ -3,14 +3,14 @@
 {% block content %}
 
 <div class="row" id="corpo_da_listagem">
+    
     <div class="col-sm-1"> </div>
+
+   
     <div class="col-sm-10" id="">
         <hr>
         <a href="{% url 'editar_perfil_pessoa' %}" class="btn btn-primary"> <i class="bi bi-arrow-right-square"></i> Clique aqui, para atualizar dados cadastrais
         </a>
-       
-       
-    
         <hr>
         <table class="table">
             <thead>
@@ -26,19 +26,32 @@
             </span> </h5>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                    <span class="badge bg-secondary" style=" width: 100%;">DADOS PESSOAIS</span>
+            <tr>
+                <td>
+                              
+                 <img src ="{{object.foto.url}}" style="width:120px; padding:5px;">
+    
                 </td>
-                </tr>
-                <tr>
-                    <td>
-                     <strong>  NOME: </strong> 
+
+                
+            </tr>
+
+                
+                    <tr>
+                        <td>
+                        <span class="badge bg-secondary" style=" width: 100%;">DADOS PESSOAIS</span>
                     </td>
-                    <td>
-                         {{object.nome}}
-                    </td>
-                </tr>
+                    </tr>
+                    <tr>
+                        <td>
+                        <strong>  NOME: </strong> 
+                        </td>
+                        <td>
+                            {{object.nome}}
+                        </td>
+                    </tr>
+                
+            
                 <tr>
                     <td>
                      <strong>  SEXO: </strong> 

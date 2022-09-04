@@ -1,4 +1,5 @@
 from dataclasses import fields
+import email
 from .models import *
 from django import forms
 from django.forms.widgets import ClearableFileInput
@@ -35,3 +36,10 @@ class SobreIgreja_form(forms.ModelForm):
     class Meta:
         model = SobreIgreja
         fields = '__all__'
+
+
+class Contatos_msg_form(forms.ModelForm):
+    msg = forms.Textarea()
+    class Meta:
+        model = Contatos_Msg
+        fields = ('mensagem', 'nome', 'email',)

@@ -1,6 +1,8 @@
 from os import name
 from django import views
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from pessoas.views import (
     home,
     listar_pessoas,
@@ -25,6 +27,6 @@ urlpatterns = [
     path('perfil_detalhes/', pessoas_detalhes_perfil, name='perfil_detalhes'),
     path('editar_perfil/', editar_perfil_pessoas, name='editar_perfil_pessoa'),
 
-
-
 ]
+urlpatterns += static(settings.MEDIA_URL,
+document_root = settings.MEDIA_ROOT,)
