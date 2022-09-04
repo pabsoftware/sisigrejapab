@@ -54,7 +54,7 @@ class Doacoes(models.Model):
     agencia = models.CharField(max_length=100, null=True, blank=True)
     conta = models.CharField(max_length=100, null=True, blank=True)
     variacao = models.CharField(max_length=10, null=True, blank=True)
-    foto = models.FileField(upload_to="img/doacoes", null=True, blank=True)
+    foto = models.FileField(upload_to="img/doacoes/", null=True, blank=True)
 
     class Meta:
             verbose_name_plural = 'doacoes'

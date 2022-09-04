@@ -33,6 +33,23 @@ def doacoes_add(request):
     context = {'form':form}
     return render(request, template_name, context)
 
+def metodo_doacoes(request):
+    template_name = 'igreja/metodo_doacoes.html'
+    object = Doacoes.objects.all()
+
+    context = {'object': object}
+    return render(request, template_name, context)
+
+
+def list_doacoes(request):
+    template_name = 'igreja/list_doacoes.html'
+    object = Doacoes.objects.all()
+
+    context = {'object': object}
+    return render(request, template_name, context)
+
+    
+
 
 def denominacao_add(request):
     template_name = 'igreja/denominacao_form.html'

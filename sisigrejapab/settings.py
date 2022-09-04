@@ -138,7 +138,8 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 MEDIA_URL = '/media/'
-MEDIA_ROOT = "{}/media".format(BASE_DIR)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 PROJECT_ROOT = os.path.dirname(__file__)

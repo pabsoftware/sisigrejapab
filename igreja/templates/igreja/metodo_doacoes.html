@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-3 ">
+  <div class="row" >
+    {% for doacoes in object %}
+      <div class="col-md-3">
+        <div class="card" >
+            <div class="card-body">
+             
+                <div id="galeria_cong"> 
+                  <strong>  <p> {{doacoes.descricao}} </p>  </strong>
+                    <hr>
+                   Chave pix:  {{doacoes.chave_pix}} 
+                </div> 
+                <img src="{{doacoes.foto.url}}" alt="" style="width:100%; padding:10px;">   
+            </div> 
+            
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
