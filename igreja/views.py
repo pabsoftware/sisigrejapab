@@ -23,8 +23,9 @@ def sobreigreja_add(request):
 def doacoes_add(request):
     template_name = 'igreja/doacoes_form.html'
     form = Doacoes_form(request.POST, request.FILES)
-    print(request.FILES)
+    
     if request.method == "POST":   
+        print(request.FILES)
         if form.is_valid():
             form.save()
             return redirect('home')
