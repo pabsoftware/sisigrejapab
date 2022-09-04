@@ -5,7 +5,7 @@ from django.forms.widgets import ClearableFileInput
 
 
 class Doacoes_form(forms.ModelForm):
-    foto = forms.ImageField(widget=ClearableFileInput)
+    foto = forms.ImageField(widget=ClearableFileInput, required=False)
     class Meta:
         model=Doacoes
         fields = (
@@ -18,6 +18,7 @@ class Doacoes_form(forms.ModelForm):
             'variacao',
             'variacao',
             'chave_pix',
+            'foto',
 
         )
 
