@@ -13,7 +13,7 @@ urlpatterns = [
     path('denominacao/', denominacao_add, name="denominacao"),
     path('doacoes/', metodo_doacoes, name="meto_doacoes"),
     path('list_doacoes/', list_doacoes, name="list_doacoes"),
-    path('edit_doacoes/<int:id>', list_doacoes, name="edit_doacoes"),
+    path('edit_doacoes/<int:id>', doacoes_edit, name="edit_doacoes"),
 ] 
 
 urlpatterns += static(settings.MEDIA_URL,

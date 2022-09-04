@@ -50,10 +50,12 @@ def list_doacoes(request):
 
 def doacoes_edit(request, id):
     template_name = 'igreja/doacoes_form.html'
-    doacoes= get_object_or_404(request, pk=id)
-    form = Doacoes_form(request.POST, request.FILES, instance=doacoes)
+    doacoes= get_object_or_404(Doacoes, pk=id)
     
-    if request.method == "POST":   
+    form = Doacoes_form(instance=doacoes)
+    
+    if request.method == "POST":  
+        form = Doacoes_form(request.POST, request.FILES, instance=doacoes) 
         print(request.FILES)
         if form.is_valid():
             form.save()
