@@ -4,7 +4,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import contatos_add, denominacao_add, doacoes_add, sobreigreja_add, metodo_doacoes, list_doacoes, doacoes_edit, list_dmensagens
+from .views import contatos_add, confima_envio_msg, denominacao_add, doacoes_add, sobreigreja_add, metodo_doacoes, list_doacoes, doacoes_edit, list_dmensagens
 
 urlpatterns = [
 
@@ -16,6 +16,7 @@ urlpatterns = [
     path('edit_doacoes/<int:id>', doacoes_edit, name="edit_doacoes"),
     path('conato/', contatos_add, name="contato_msg"),
     path('mensagens/', list_dmensagens, name="mensagens"),
+    path('sucesso_msg/', confima_envio_msg, name="sucesso_msg"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,

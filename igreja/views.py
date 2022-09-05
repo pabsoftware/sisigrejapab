@@ -94,7 +94,7 @@ def contatos_add(request):
     if request.method == 'POST':
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('sucesso_msg')
     context = {'form': form}
     return render(request, template_name, context)
 
@@ -106,5 +106,7 @@ def list_dmensagens(request):
     context = {'object': object}
     return render(request, template_name, context)
 
-
+def confima_envio_msg(request):
+    template_name = 'igreja/confirm_envio_msg.html'
+    return render(request, template_name)
 # ===================FIM CONTATO ========================
