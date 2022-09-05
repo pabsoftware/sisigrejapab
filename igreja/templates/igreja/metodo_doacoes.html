@@ -22,13 +22,13 @@
 
   <div class="row">
     {% for doacoes in object %}
-    <div class="col-md-4" style="padding:10px">
-      <div class="card">
-        <div class="card-body">
+    <div class="col-md-4" style="padding:5px;">
+      <div class="card" style="box-shadow: 0px 0px 4px black;">
+        <div class="card-body" >
 
           <div id="galeria_cong">
             <strong>
-          <strong>  <h5> {{doacoes.descricao}} </h5> </strong>
+           <h5> {{doacoes.descricao}} </h5> 
             </strong>
             <hr>
             {% if doacoes.chave_pix%}
