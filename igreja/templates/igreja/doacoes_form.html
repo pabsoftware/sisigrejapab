@@ -8,14 +8,14 @@
     <div class="col-sm-2"></div>
     <div class="col-sm-8" style="padding-top: 20px; padding-bottom: 20px;">
       <div class="container p-3 my-2 border">
-        <div class="alert alert-success">
-          <strong>INFORME OS DADOS PARA CADASTRO</strong> </a>.
+<div class="alert alert-success">
+          <strong>INFORME OS DADOS PARA CADASTRO</strong>
         </div>
 
-        <form action="" method="post" class="form" enctype ="multipart/form-data" >
+        <form action="" method="post" class="form" enctype="multipart/form-data">
           {% csrf_token %}
           {% bootstrap_form form %}
-          
+
           {% buttons %}
           <button type="submit" class="btn btn-success">
             <i class="bi bi-check-lg"></i> Salvar

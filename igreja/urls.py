@@ -16,7 +16,7 @@ urlpatterns = [
     path('edit_doacoes/<int:id>', doacoes_edit, name="edit_doacoes"),
     path('conato/', contatos_add, name="contato_msg"),
     path('mensagens/', list_dmensagens, name="mensagens"),
-] 
+]
 
 urlpatterns += static(settings.MEDIA_URL,
-document_root = settings.MEDIA_ROOT,)
+                      document_root=settings.MEDIA_ROOT,)

@@ -10,6 +10,7 @@ validate-docbr = "*"
 django-bootstrap-v5 = "*"
 flask = "*"
 pillow = "*"
+pylint = "*"
 
 [dev-packages]
 

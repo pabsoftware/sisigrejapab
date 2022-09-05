@@ -4,12 +4,14 @@
 {% block content %}
 
 <div class="container mt-3 ">
-  <div class="row" >
+  <div class="row">
     <div class="col-md-12">
-      <p><h4> Seja um doador, contribuinte na obra de Deus </h4></p>
+      <p>
+      <h4> Seja um doador, contribuinte na obra de Deus </h4>
+      </p>
       <div style="text-align:justify;">
-       
-      Escolha a memlhor forma de contribuição 
+
+        Escolha a memlhor forma de contribuição
 
 
       </div>
@@ -18,56 +20,58 @@
   <br> <br>
   <hr>
 
-  <div class="row" >
+  <div class="row">
     {% for doacoes in object %}
-      <div class="col-md-4">
-        <div class="card" >
-            <div class="card-body">
-             
-                <div id="galeria_cong"> 
-                  <strong>  <p> {{doacoes.descricao}} </p>  </strong>
-                    <hr>
-                    {% if doacoes.chave_pix%}
-                    <strong> Titular: </strong> {{doacoes.titular}} <br>
-                  <strong> Chave pix: </strong> {{doacoes.chave_pix}} 
-                   {% else%}
-                   <table  style="text-align:left;">
-                    <tr> 
-                      <td>
-                        <strong> Titular: </strong>
-                         {{doacoes.titular}} 
-                      </td>
-                    </tr>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
 
-                    <tr>  
-                      <td> 
-                        <strong> Tipo conta: </strong>
-                         {{doacoes.tipo_conta}}  
-                      </td>
-                    </tr>
+          <div id="galeria_cong">
+            <strong>
+              <p> {{doacoes.descricao}} </p>
+            </strong>
+            <hr>
+            {% if doacoes.chave_pix%}
+            <strong> Titular: </strong> {{doacoes.titular}} <br>
+            <strong> Chave pix: </strong> {{doacoes.chave_pix}}
+            {% else%}
+            <table style="text-align:left;">
+              <tr>
+                <td>
+                  <strong> Titular: </strong>
+                  {{doacoes.titular}}
+                </td>
+              </tr>
 
-                    <tr>
-                      <td>
-                        <strong> Agência: </strong>    
-                         {{doacoes.agencia}}    
-                      </td>       
-                    </tr>
-                    <tr> 
-                      <td>
-                        <strong> Conta: </strong>
-                         {{doacoes.conta}}   
-                      </td>               
-                    </tr>
-                  
-                   </table>
-                   {% endif %}
-                </div>
-                <hr> 
-                <img src="{{doacoes.foto.url}}" alt="" style="width:100%; padding:5px;">   
-            </div> 
-            
+              <tr>
+                <td>
+                  <strong> Tipo conta: </strong>
+                  {{doacoes.tipo_conta}}
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <strong> Agência: </strong>
+                  {{doacoes.agencia}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong> Conta: </strong>
+                  {{doacoes.conta}}
+                </td>
+              </tr>
+
+            </table>
+            {% endif %}
           </div>
+          <hr>
+          <img src="{{doacoes.foto.url}}" alt="" style="width:100%; padding:5px;">
+        </div>
+
       </div>
+    </div>
     {% endfor %}
   </div>
 </div>

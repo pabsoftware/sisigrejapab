@@ -20,18 +20,21 @@ def sobreigreja_add(request):
     return render(request, template_name, context)
 
 # =============== DOACOES ==========================
+
+
 def doacoes_add(request):
     template_name = 'igreja/doacoes_form.html'
     form = Doacoes_form(request.POST, request.FILES)
-    
-    if request.method == "POST":   
+
+    if request.method == "POST":
         print(request.FILES)
         if form.is_valid():
             form.save()
             return redirect('list_doacoes')
-    
-    context = {'form':form}
+
+    context = {'form': form}
     return render(request, template_name, context)
+
 
 def metodo_doacoes(request):
     template_name = 'igreja/metodo_doacoes.html'
@@ -48,24 +51,27 @@ def list_doacoes(request):
     context = {'object': object}
     return render(request, template_name, context)
 
+
 def doacoes_edit(request, id):
     template_name = 'igreja/doacoes_form.html'
-    doacoes= get_object_or_404(Doacoes, pk=id)
-    
+    doacoes = get_object_or_404(Doacoes, pk=id)
+
     form = Doacoes_form(instance=doacoes)
-    
-    if request.method == "POST":  
-        form = Doacoes_form(request.POST, request.FILES, instance=doacoes) 
+
+    if request.method == "POST":
+        form = Doacoes_form(request.POST, request.FILES, instance=doacoes)
         print(request.FILES)
         if form.is_valid():
             form.save()
             return redirect('list_doacoes')
-    
-    context = {'form':form}
-    return render(request, template_name, context)
-#===================FIM DOACOES ========================
 
-#===================DENOMINACAO ========================
+    context = {'form': form}
+    return render(request, template_name, context)
+# ===================FIM DOACOES ========================
+
+# ===================DENOMINACAO ========================
+
+
 def denominacao_add(request):
     template_name = 'igreja/denominacao_form.html'
     form = denominacao_form(request.POST, request.FILES)
@@ -74,13 +80,13 @@ def denominacao_add(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-    context = {'form':form} 
+    context = {'form': form}
     return render(request, template_name, context)
 
 
-#===================FIM DENOMINACAO ========================
+# ===================FIM DENOMINACAO ========================
 
-#=================== CONTATO ========================
+# =================== CONTATO ========================
 def contatos_add(request):
     template_name = 'igreja/contato_msg_form.html'
     form = Contatos_msg_form(request.POST or None)
@@ -89,8 +95,9 @@ def contatos_add(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-    context = {'form':form} 
+    context = {'form': form}
     return render(request, template_name, context)
+
 
 def list_dmensagens(request):
     template_name = 'igreja/mensagem_list.html'
@@ -100,4 +107,4 @@ def list_dmensagens(request):
     return render(request, template_name, context)
 
 
-#===================FIM CONTATO ========================
+# ===================FIM CONTATO ========================
