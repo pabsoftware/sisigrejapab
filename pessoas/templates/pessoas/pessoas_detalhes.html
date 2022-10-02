@@ -28,9 +28,13 @@
             <tbody>
             <tr>
                 <td>
-                              
-                 <img src ="{{object.foto.url}}" style="width:120px; padding:5px;">
-    
+                  {% if object.foto != "" %}          
+                  <img src ="{{object.foto.url}}" style="width:120px; padding:5px;">
+                    {% else %}
+                    <h3> Não há foto </h3>
+                {% endif %}
+               
+                   
                 </td>
 
                 
